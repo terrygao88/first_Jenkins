@@ -2,8 +2,6 @@ node {
    def commit_id
    stage('Preparation') {
      checkout scm
-     sh "git config --global user.email "terrygao6@gmail.com""
-     sh "git config --global user.name "terrygao88""
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commit_id = readFile('.git/commit-id').trim()
    }
