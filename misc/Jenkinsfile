@@ -6,8 +6,9 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('docker build/push') {
-            steps {
-        sh 'docker build -t terrygao8/test:latest .'
-      }
+      def app = docker.build("terrygao8/my_repo:${commit_id}", '.')     
+     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+       app.push()
+     }
    }
 }
