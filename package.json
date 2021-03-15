@@ -1,0 +1,19 @@
+{
+  "name": "myapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "engines": {
+    "node": "^12"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2"
+  }
+}
