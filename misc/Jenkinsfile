@@ -6,6 +6,8 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('docker build/push') {
-      def newBuild = docker.build "terrygao8/pipeline:{env.BUILD_TAG}"
+            steps {
+        sh 'docker build -t terrygao8/test .'
+      }
    }
 }
