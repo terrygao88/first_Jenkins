@@ -7,8 +7,8 @@ node {
    }
    stage('docker build/push') {
       def app = docker.build("terrygao8/my_repo:${commit_id}", '.')
-      docker.image(app).withRun('-dp 3000:3000')
-      //sh "docker run -dp 3000:3000 terrygao8/my_repo"
+      //docker.image(app).withRun('-dp 3000:3000')
+      sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
      }
    }
 
