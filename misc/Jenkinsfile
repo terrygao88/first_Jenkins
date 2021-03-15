@@ -7,7 +7,7 @@ node {
    }
    stage('docker build/push') {
             steps {
-        sh 'docker build -t terrygao8/test .'
+        sh 'docker build -t terrygao8/test:latest .'
       }
    }
 }
