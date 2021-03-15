@@ -11,4 +11,4 @@ node {
       //sh "docker run -dp 3000:3000 terrygao8/my_repo"
      }
    }
-}
+
