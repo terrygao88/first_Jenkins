@@ -15,7 +15,8 @@ node {
 
    stage('docker build/run/push') {
       def app = docker.build("terrygao8/my_repo:${commit_id}", '.')
-      sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
+      //sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
+      sh "docker-compose up"
       docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
       app.push()
         }   
