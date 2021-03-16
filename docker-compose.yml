@@ -1,5 +1,0 @@
-services:
-  web:
-    ports:
-      - "3000:3000"
-    image: "terrygao8/my_repo:${commit_id}"
