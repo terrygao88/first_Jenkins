@@ -1,8 +1,8 @@
 services:
   web:
     build: .
-    command: node index-db.js
+    command: node index.js
     ports:
       - "3000:3000"
   redis:
-    image: ""
+    image: "terrygao8/my_repo:${TAG}"
