@@ -1,5 +1,5 @@
 node {
-   /* def commit_id
+    def commit_id
    stage('Preparation') {
      checkout scm
      sh "git rev-parse --short HEAD > .git/commit-id"                        
@@ -15,19 +15,17 @@ node {
 
   stage('docker build/run/push') {
       def app = docker.build("terrygao8/my_repo:${commit_id}", '.')
-      //sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
       docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
       app.push()
         }   
      }
-     */
+     
    stage('pull')
    {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-        sh "docker pull terrygao8/my_repo:3895393"
-        sh "docker run -dp 3000:3000 terrygao8/my_repo:3895393"
-   }
-   
+        sh "docker pull terrygao8/my_repo:${commit_id}"
+        sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
+   }   
    }
    
 }
