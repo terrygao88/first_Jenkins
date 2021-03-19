@@ -24,8 +24,8 @@ node {
    stage('pull')
    {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-        sh "docker pull terrygao8/my_repo:${commit_id}"
-        sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
+        sh "docker pull terrygao8/my_repo:3895393"
+        sh "docker run -dp 3000:3000 terrygao8/my_repo:3895393"
    }
    
    }
