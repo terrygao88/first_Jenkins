@@ -23,7 +23,7 @@ node {
    stage('docker pull/run'){
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
         sh "docker pull terrygao8/my_repo:${commit_id}"
-        sh "docker run -dp 3000:3000 terrygao8/my_repo:${commit_id}"
+        sh "docker run --rm -dp 3000:3000 terrygao8/my_repo:${commit_id}"
    }   
    }
  }
